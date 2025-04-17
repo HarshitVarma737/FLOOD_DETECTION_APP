@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flood Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='rain.png') }}">
+
+    <script>
+        // JavaScript function to validate the form
+        function validateForm() {
+            // Get all form elements
+            var fields = document.querySelectorAll("input[type='text'], input[type='number']");
+            var valid = true;
+
+            // Check if any field is empty
+            for (var i = 0; i < fields.length; i++) {
+                if (fields[i].value.trim() === "") {
+                    valid = false;
+                    break;
+                }
+            }
+
+            // If any field is empty, show an alert
+            if (!valid) {
+                alert("All fields are mandatory! Please fill in all the fields.");
+            }
+
+            return valid; // Return false if validation fails to prevent form submission
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Card Section -->
+        <aside class="profile-card">
+            <img src="{{ url_for('static', filename='profile.jpeg') }}" alt="Your Photo" class="profile-img">
+            <h2>Ishank Bansal</h2>
+            <p class="role">IT Student @MUJ</p>
+            <p class="description">Working on a smart flood detection system powered by ML. Real-time inputs, real impact.</p>
+            <p class="description">Models Used:
+                <ul>
+                    <li>Random Forest Classifier</li>
+                    <li>Logistic Regression</li>
+                </ul>
+            </p>
+        </aside>
+
+        <!-- Form Section -->
+        <main class="form-container">
+            <h1 class="title">🌊 Flood Detection Portal</h1>
+            <form action="/predict" method="post" novalidate onsubmit="return validateForm()">
+                <div class="grid">
+                    <div class="form-group"><label>Station Names</label><input type="text" name="station_names" required></div>
+                    <div class="form-group"><label>Year</label><input type="number" name="year" required></div>
+                    <div class="form-group"><label>Month</label><input type="number" name="month" required></div>
+                    <div class="form-group"><label>Max Temp (°C)</label><input type="number" name="max_temp" step="0.1" required></div>
+                    <div class="form-group"><label>Min Temp (°C)</label><input type="number" name="min_temp" step="0.1" required></div>
+                    <div class="form-group"><label>Rainfall (mm)</label><input type="number" name="rainfall" step="0.1" required></div>
+                    <div class="form-group"><label>Humidity (%)</label><input type="number" name="relative_humidity" step="0.1" required></div>
+                    <div class="form-group"><label>Wind Speed (km/h)</label><input type="number" name="wind_speed" step="0.1" required></div>
+                    <div class="form-group"><label>Cloud Coverage (%)</label><input type="number" name="cloud_coverage" step="0.1" required></div>
+                    <div class="form-group"><label>Bright Sunshine (hrs)</label><input type="number" name="bright_sunshine" step="0.1" required></div>
+                    <div class="form-group"><label>Station Number</label><input type="number" name="station_number" required></div>
+                    <div class="form-group"><label>X Coordinate</label><input type="number" name="x_cor" step="0.1" required></div>
+                    <div class="form-group"><label>Y Coordinate</label><input type="number" name="y_cor" step="0.1" required></div>
+                    <div class="form-group"><label>Latitude</label><input type="number" name="latitude" step="0.1" required></div>
+                    <div class="form-group"><label>Longitude</label><input type="number" name="longitude" step="0.1" required></div>
+                    <div class="form-group"><label>Altitude (m)</label><input type="number" name="alt" step="0.1" required></div>
+                    <div class="form-group"><label>Period</label><input type="text" name="period" required></div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span>🚀 Run Prediction</span>
+                </button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

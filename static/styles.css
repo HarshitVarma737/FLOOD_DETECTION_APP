@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Sea wave background animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #00c9ff, #ffffff, #00CCCC);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: wave-animation 12s ease-in-out infinite;
+}
+
+/* Keyframes for moving the background gradient to simulate waves */
+@keyframes wave-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container holding all sections */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1600px;
+    width: 100%;
+}
+
+/* Profile Card Section */
+.profile-card {
+    width: 280px;
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2); /* Darkened background for contrast */
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 2px solid #00c9ff;
+}
+
+.profile-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.profile-card .role {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #cce4f7;
+}
+
+.profile-card .description {
+    font-size: 0.85rem;
+    line-height: 2;
+    color: #e0f7fa;
+}
+
+/* Form Section */
+.form-container {
+    width: 100%;
+    max-width: 960px;
+    background: rgba(0, 0, 0, 0.2); /* Darkened background for contrast */
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #cce4f7;
+}
+
+.form-group input {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 2px #00c9ff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.submit-btn:hover {
+    transform: scale(1.03);
+}

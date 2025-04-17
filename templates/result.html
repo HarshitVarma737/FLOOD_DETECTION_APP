@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='rain.png') }}">
+</head>
+<body>
+    <div class="hero-background">
+        <main class="form-container glass">
+            <h1 class="title">🌊 Prediction Result</h1>
+            <div class="result-details">
+                <p><strong>Prediction:</strong> <span class="highlight">{{ result.prediction }}</span></p>
+                <p><strong>Probability:</strong> <span class="highlight">{{ result.probability }}</span></p>
+            </div>
+            <a href="/" class="submit-btn" style="text-align:center; text-decoration:none; display:inline-block; margin-top:1.5rem;">
+                ← Predict Again
+            </a>
+        </main>
+    </div>
+</body>
+</html>
